@@ -11,8 +11,20 @@ public class PlayerMovement : MonoBehaviour
     private float deltaX, deltaY;
     void Start()
     {
+        LoadPlayerLocation();
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+    }
+    private void LoadPlayerLocation()
+    {
+        Vector3 loadedLocation = transform.position;
+        if (PlayerPrefs.HasKey("PlayerPositionX"))
+            loadedLocation.x = PlayerPrefs.GetFloat("PlayerPositionX");
+        if (PlayerPrefs.HasKey("PlayerPositionY"))
+            loadedLocation.y = PlayerPrefs.GetFloat("PlayerPositionY");
+        if (PlayerPrefs.HasKey("PlayerPositionZ"))
+            loadedLocation.z = PlayerPrefs.GetFloat("PlayerPositionZ");
+        transform.position = loadedLocation;
     }
     private void Update()
     {
