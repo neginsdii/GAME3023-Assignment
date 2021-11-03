@@ -42,28 +42,28 @@ public class PlayerMovement : MonoBehaviour
     }
     private void animationUpdate()
     {
-        if (deltaX < 0)
+        if (body.velocity.x < 0)
         {
             anim.SetBool("left", true);
             anim.SetBool("right", false);
             anim.SetBool("up", false);
             anim.SetBool("down", false);
         }
-        else if (deltaX > 0)
+        else if (body.velocity .x > 0)
         {
             anim.SetBool("right", true);
             anim.SetBool("left", false);
             anim.SetBool("up", false);
             anim.SetBool("down", false);
         }
-        else if (deltaY < 0)
+        else if (body.velocity .y< 0)
         {
             anim.SetBool("left", false);
             anim.SetBool("right", false);
             anim.SetBool("up", false);
             anim.SetBool("down", true);
         }
-        else if (deltaY > 0)
+        else if (body.velocity.y > 0)
         {
             anim.SetBool("left", false);
             anim.SetBool("right", false);
