@@ -12,11 +12,14 @@ public class EncounterOpponentCharacter : Icharacter
     [SerializeField]
     private EncounterInstance encounter;
     private Animator anim;
+    [SerializeField]
+    private EncounterUI encounterUI;
 
-
+    [SerializeField]
+    private Text HealthText;
     private void Start()
     {
-       
+        health = 100;
         anim = GetComponent<Animator>();
     }
     public override void TakeTurn(EncounterInstance ei)
@@ -32,6 +35,7 @@ public class EncounterOpponentCharacter : Icharacter
     // Update is called once per frame
     void Update()
     {
+        HealthText.text = "Health: " + health;
 
     }
     public void UseAbility()
@@ -53,4 +57,5 @@ public class EncounterOpponentCharacter : Icharacter
       
 
     }
+
 }

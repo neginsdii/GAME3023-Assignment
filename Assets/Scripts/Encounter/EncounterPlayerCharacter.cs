@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.Events;
 public class EncounterPlayerCharacter : Icharacter
 {
     [SerializeField]
@@ -11,12 +11,17 @@ public class EncounterPlayerCharacter : Icharacter
     private EncounterInstance encounter;
     [SerializeField]
     private EncounterPlayerCharacter player;
-
+    [SerializeField]
+    private Text  HealthText;
+    [SerializeField]
+    private EncounterUI encounterUI;
     private Animator anim;
+    public UnityEvent<Ability> onCharacterUsedAbility;
 
     private void Start()
     {
-        
+        abilities = GameDataManager.Instance.PlayerAbilities;
+        health = GameDataManager.Instance.playerHealth;
         anim = GetComponent<Animator>();
     }
     public override void TakeTurn(EncounterInstance ei)
@@ -27,7 +32,9 @@ public class EncounterPlayerCharacter : Icharacter
     }
     public void UseAbility(int slot)
     {
+       
         abilities[slot].cast(this, opponent);
+     //   encounterUI.AnnounceCharacterChoosenAbility(this,abilities[slot]);
         encounter.AdvanceTurn();
 
     }
@@ -38,5 +45,9 @@ public class EncounterPlayerCharacter : Icharacter
      
 
     }
+	private void Update()
+	{
+        HealthText.text = "Health: " + health;
+	}
 
 }

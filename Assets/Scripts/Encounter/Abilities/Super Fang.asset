@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa21335db237ece4885cba1adf162cd8, type: 3}
-  m_Name: Attack
+  m_Name: Super Fang
   m_EditorClassIdentifier: 
-  name: Attack
-  description: 
+  name: Super Fang
+  description: Takes off half of the opponent's HP.
   effects: []

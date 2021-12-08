@@ -6,7 +6,12 @@ public abstract class Icharacter : MonoBehaviour
 {
     [SerializeField]
     protected Ability[] abilities;
-
+    public Ability[] Abilities
+    {
+        get { return abilities; }
+        
+    }
+    public int health;
     public abstract void TakeTurn(EncounterInstance EI);
     // Start is called before the first frame update
     void Start()

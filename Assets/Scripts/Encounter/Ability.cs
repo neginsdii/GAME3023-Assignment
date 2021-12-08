@@ -12,6 +12,10 @@ public class Ability : ScriptableObject
 
     public void cast(Icharacter self, Icharacter other)
     {
+        foreach (var effect in effects)
+        {
+            effect.applyEffect(self, other);
+        }
         Debug.Log("Used: " + name);
     }
 }
