@@ -34,8 +34,7 @@ public class EncounterPlayerCharacter : Icharacter
     {
        
         abilities[slot].cast(this, opponent);
-     //   encounterUI.AnnounceCharacterChoosenAbility(this,abilities[slot]);
-        encounter.AdvanceTurn();
+        encounterUI.AnnounceCharacterChoosenAbility(this,abilities[slot]);
 
     }
     IEnumerator DelayToPlayAnimation(EncounterInstance ei)

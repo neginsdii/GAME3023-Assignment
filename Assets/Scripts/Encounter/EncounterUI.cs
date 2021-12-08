@@ -56,7 +56,7 @@ public class EncounterUI : MonoBehaviour
         animateTextCoroutineRef = AnimateTextCoroutine( characterTurn.name + " chose " + ability.name+". It "+ ability.description);
        
         StartCoroutine(animateTextCoroutineRef);
-
+        encounter.AdvanceTurn();
     }
     void EnablePlayerUI(Icharacter characterTurn)
     {

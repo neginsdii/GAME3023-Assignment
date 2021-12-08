@@ -400,8 +400,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -257, y: 79}
-  m_SizeDelta: {x: 125.5, y: 118.9}
+  m_AnchoredPosition: {x: -214, y: 94.147}
+  m_SizeDelta: {x: 96.14, y: 156.74}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &526719643
 MonoBehaviour:
@@ -424,7 +424,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 5268192772220182190, guid: 63af6b44d4ae3b7438804c9f0942ccd5, type: 3}
-  m_Type: 0
+  m_Type: 1
   m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
@@ -4898,15 +4898,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 17
+  m_fontSizeBase: 17
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -4934,7 +4934,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -185.07832, w: 0}
+  m_margin: {x: 30.883339, y: -20.8819, z: -185.07832, w: -70.47642}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -4964,8 +4964,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -22.933258, y: 24.887756}
-  m_SizeDelta: {x: 200, y: 30.02}
+  m_AnchoredPosition: {x: -26.74, y: 24.887756}
+  m_SizeDelta: {x: 169.547, y: 30.02}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1637717236
 GameObject:
@@ -10660,8 +10660,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 217, y: 112}
-  m_SizeDelta: {x: 400, y: 200}
+  m_AnchoredPosition: {x: 289.43, y: 92.257}
+  m_SizeDelta: {x: 544.86, y: 160.52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1684233209
 MonoBehaviour:
@@ -10714,17 +10714,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 60
+    m_Left: 48
     m_Right: 70
-    m_Top: 45
+    m_Top: 24
     m_Bottom: 35
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 140, y: 50}
-  m_Spacing: {x: 5, y: 5}
+  m_CellSize: {x: 125.72, y: 44.3}
+  m_Spacing: {x: 30.43, y: 11.18}
   m_Constraint: 1
-  m_ConstraintCount: 2
+  m_ConstraintCount: 3
 --- !u!1 &1712805315
 GameObject:
   m_ObjectHideFlags: 0
