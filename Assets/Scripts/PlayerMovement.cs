@@ -7,13 +7,14 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D body;
     public float speed;
     private Animator anim;
-
+    private AudioSource footstepsSound;
     private float deltaX, deltaY;
     void Start()
     {
         LoadPlayerLocation();
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        footstepsSound = GetComponent<AudioSource>();
     }
     private void LoadPlayerLocation()
     {
@@ -31,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
         deltaX = Input.GetAxisRaw("Horizontal");
         deltaY = Input.GetAxisRaw("Vertical");
 
+    
     }
 
     // Update is called once per frame
@@ -39,6 +41,17 @@ public class PlayerMovement : MonoBehaviour
        
         body.velocity = new Vector2(deltaX * speed, deltaY * speed);
         animationUpdate();
+        PlayFootStep();
+    }
+    private void PlayFootStep()
+    {
+        if (deltaX != 0 || deltaY != 0)
+        {
+            if (!footstepsSound.isPlaying)
+                footstepsSound.Play();
+        }
+        else
+            footstepsSound.Pause();
     }
     private void animationUpdate()
     {

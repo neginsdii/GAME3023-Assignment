@@ -4,11 +4,19 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class SceneController : MonoBehaviour
 {
-
+    private AudioSource clickSound;
+   
     public GameObject player;
-  public void OnStartButton()
+
+    private void Start()
+    {
+        clickSound = GetComponent<AudioSource>();
+    }
+    public void OnStartButton()
     {
         SceneManager.LoadScene("Main");
+        clickSound.Play();
+ 
     }
 
     public void OnSaveButton()
@@ -17,9 +25,11 @@ public class SceneController : MonoBehaviour
         PlayerPrefs.SetFloat("PlayerPositionY", player.transform.position.y);
         PlayerPrefs.SetFloat("PlayerPositionZ", player.transform.position.z);
         PlayerPrefs.Save();
+        clickSound.Play();
     }
     public void OnExitButton()
     {
+        clickSound.Play();
         Application.Quit();
     }
 }
