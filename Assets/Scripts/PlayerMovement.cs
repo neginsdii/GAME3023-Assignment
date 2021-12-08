@@ -9,12 +9,16 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     private AudioSource footstepsSound;
     private float deltaX, deltaY;
+    private ParticleSystem dustTrail;
+    public Color grassColor,dustColor;
+    private bool isMoving =false;
     void Start()
     {
         LoadPlayerLocation();
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         footstepsSound = GetComponent<AudioSource>();
+        dustTrail = GetComponentInChildren<ParticleSystem>();
     }
     private void LoadPlayerLocation()
     {
@@ -31,27 +35,43 @@ public class PlayerMovement : MonoBehaviour
     {
         deltaX = Input.GetAxisRaw("Horizontal");
         deltaY = Input.GetAxisRaw("Vertical");
-
-    
+      
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-       
+
         body.velocity = new Vector2(deltaX * speed, deltaY * speed);
         animationUpdate();
         PlayFootStep();
+        DustTrailGeneration();
     }
+
+    private void DustTrailGeneration()
+    {
+        if (isMoving)
+        {
+            dustTrail.GetComponent<Renderer>().material.SetColor("_Color", dustColor);
+            dustTrail.Play();
+        }
+        else
+            dustTrail.Pause();
+    }
+
     private void PlayFootStep()
     {
         if (deltaX != 0 || deltaY != 0)
         {
+            isMoving = true;
             if (!footstepsSound.isPlaying)
                 footstepsSound.Play();
         }
         else
+        {
+            isMoving = false;
             footstepsSound.Pause();
+        }
     }
     private void animationUpdate()
     {
@@ -93,4 +113,5 @@ public class PlayerMovement : MonoBehaviour
 
 
     }
+  
 }
