@@ -12,8 +12,17 @@ EditorBuildSettings:
     path: Assets/Scenes/Main.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Encounter.unity
+    path: Assets/Scenes/Encounter2.unity
     guid: 7ed17bdff2273954aba750b1b8461b03
+  - enabled: 1
+    path: Assets/Scenes/Encounter1.unity
+    guid: 430755a1bcd0ea143b7f86759972369d
+  - enabled: 1
+    path: Assets/Scenes/Encounter3.unity
+    guid: be0a24ee575831b41b349c53c8de4868
+  - enabled: 1
+    path: Assets/Scenes/Encounter4.unity
+    guid: 8905bf3b96c983045a00976f222f1783
   - enabled: 1
     path: Assets/Scenes/EndScene.unity
     guid: 38caee9a6dfaa83469cb8958c9be7d0b

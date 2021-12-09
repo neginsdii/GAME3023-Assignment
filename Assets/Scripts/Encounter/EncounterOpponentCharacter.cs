@@ -14,13 +14,15 @@ public class EncounterOpponentCharacter : Icharacter
     private Animator anim;
     [SerializeField]
     private EncounterUI encounterUI;
-
+    [SerializeField]
+    private SpriteRenderer sprite;
     [SerializeField]
     private Text HealthText;
     private void Start()
     {
         health = 100;
         anim = GetComponent<Animator>();
+        
     }
     //Calling use ability function
     public override void TakeTurn(EncounterInstance ei)
@@ -31,7 +33,7 @@ public class EncounterOpponentCharacter : Icharacter
         UseAbility();
     }
 
-
+   
     // Update is called once per frame
     void Update()
     {

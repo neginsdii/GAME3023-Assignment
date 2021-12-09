@@ -26,9 +26,11 @@ public class SceneController : MonoBehaviour
         PlayerPrefs.SetFloat("PlayerPositionY", player.transform.position.y);
         PlayerPrefs.SetFloat("PlayerPositionZ", player.transform.position.z);
         PlayerPrefs.SetFloat("PlayerHealth", gameData.playerHealth);
-        for (int i = 0;  i < gameData.PlayerAbilities.Count; i++)
+        PlayerPrefs.SetInt("AbilityCount", GameDataManager.Instance.PlayerAbilities.Count);
+
+        for (int i = 0;  i < GameDataManager.Instance.PlayerAbilities.Count; i++)
         {
-            PlayerPrefs.SetString("Ability"+i, gameData.PlayerAbilities[i].name);
+            PlayerPrefs.SetString("Ability"+i, GameDataManager.Instance.PlayerAbilities[i].name);
         }
         PlayerPrefs.Save();
 
@@ -39,4 +41,6 @@ public class SceneController : MonoBehaviour
         clickSound.Play();
         Application.Quit();
     }
+
+  
 }

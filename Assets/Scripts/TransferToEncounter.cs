@@ -15,8 +15,9 @@ public class TransferToEncounter : MonoBehaviour
 
         if (!GameDataManager.Instance.Encounters.Contains(index))
         {
-            img.GetComponent<Animator>().SetBool("FadeIn",true);
+            GameDataManager.Instance.ActiveEncouterIndex = index;
             StartCoroutine(DelayInTransition(index));
+            img.GetComponent<Animator>().SetBool("FadeIn",true);
            
 
         }
@@ -25,8 +26,8 @@ public class TransferToEncounter : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         img.GetComponent<Animator>().SetBool("FadeIn",false);
-        SceneManager.LoadScene("Encounter");
         //Add the encounter scene to the list of scenes that player entered them
-        GameDataManager.Instance.Encounters.Add(index);
+        SceneManager.LoadScene("Encounter"+index);
+
     }
 }

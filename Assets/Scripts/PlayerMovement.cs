@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
         deltaY = Input.GetAxisRaw("Vertical");
       
     }
-
+  
     // Update is called once per frame
     void FixedUpdate()
     {
