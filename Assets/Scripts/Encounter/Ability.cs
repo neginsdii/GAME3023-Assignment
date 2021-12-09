@@ -9,6 +9,7 @@ public class Ability : ScriptableObject
     public new string name;
     public string description;
     public IEffect[] effects;
+    public bool isActive = true;
 
     public void cast(Icharacter self, Icharacter other)
     {

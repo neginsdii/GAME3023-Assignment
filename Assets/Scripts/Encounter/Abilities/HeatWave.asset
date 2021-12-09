@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa21335db237ece4885cba1adf162cd8, type: 3}
-  m_Name: Shadow Shield
+  m_Name: HeatWave
   m_EditorClassIdentifier: 
-  name: Shadow Shield
-  description: Reduces damage when HP is Half.
-  effects: []
+  name: HeatWave
+  description: Burns the opponent.
+  effects:
+  - {fileID: 11400000, guid: f54177228c2c18449906ca0c4aa8633c, type: 2}
+  isActive: 1

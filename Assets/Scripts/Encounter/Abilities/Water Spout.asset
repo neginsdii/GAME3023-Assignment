@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa21335db237ece4885cba1adf162cd8, type: 3}
-  m_Name: Bide
+  m_Name: Water Spout
   m_EditorClassIdentifier: 
-  name: Bide
-  description: User takes damage for two turns then strikes back double.
-  effects: []
+  name: Water Spout
+  description: Weaken the opponent. Recovers user's HP.
+  effects:
+  - {fileID: 11400000, guid: f24a77d04ba95f6488ec1e7e44ae41b9, type: 2}
+  isActive: 1

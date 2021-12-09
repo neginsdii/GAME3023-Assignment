@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Super Fang
   description: Takes off half of the opponent's HP.
-  effects: []
+  effects:
+  - {fileID: 11400000, guid: cbe5a38ab20d5d142857fd959ce67db4, type: 2}
+  isActive: 1

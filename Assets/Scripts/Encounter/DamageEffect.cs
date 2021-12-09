@@ -5,11 +5,32 @@ using UnityEngine;
 
 public class DamageEffect : IEffect
 {
-    [SerializeField]
-    private int damage;
+	//Applying damage to characters.
+	//showing propper animation based on the amount of damage
 	public override void applyEffect(Icharacter self, Icharacter other)
 	{
-			other.health -= damage;
+		other.health -= damage;
+		self.health += heal;
+		switch (damage)
+		{
+			case  30:
+				other.GetComponent<Animator>().SetTrigger("Hurt");
 
+				break;
+			case 20:
+				other.GetComponent<Animator>().SetTrigger("Hit");
+
+				break;
+			case 15:
+				other.GetComponent<Animator>().SetTrigger("Fire");
+
+				break;
+			case 10:
+				other.GetComponent<Animator>().SetTrigger("Shock");
+				break;
+			default:
+				other.GetComponent<Animator>().SetTrigger("Water");
+				break;
+		}
 	}
 }

@@ -22,13 +22,13 @@ public class EncounterOpponentCharacter : Icharacter
         health = 100;
         anim = GetComponent<Animator>();
     }
+    //Calling use ability function
     public override void TakeTurn(EncounterInstance ei)
     {
         encounter = ei;
         player = ei.Player;
         EnemySelf = ei.Enemy;
-        StartCoroutine(DelayDecision(ei));
-
+        UseAbility();
     }
 
 
@@ -36,26 +36,102 @@ public class EncounterOpponentCharacter : Icharacter
     void Update()
     {
         HealthText.text = "Health: " + health;
-
+        if (health >= 100)
+            health = 100;
     }
+    //Choosing a ability with a delay
     public void UseAbility()
     {
-
-       
+        StartCoroutine(DelayDecision());
     }
-    IEnumerator DelayDecision(EncounterInstance ei)
+    //Finding an ability based on player's health
+    //deactivating that ability for one turn
+    IEnumerator DelayDecision()
     {
        
-        yield return new WaitForSeconds(5.0f);
+        yield return new WaitForSeconds(3.5f);
+        int i = 0;
+        if (health >= 35)
+        {
+           // if((i=FindAnAbilityWithHealingEffect())<=-1)
+            i = findRandomActiveAbility();
+            abilities[i].cast(this, player);
+        }
+        else if (health < 35)
+		{
+            i = FindAbilityWithHighestDamage();
+            abilities[i].cast(this, player);
 
-        ei.AdvanceTurn();
+        }
+        abilities[LastTurnAbilityIndex].isActive = true;
+        LastTurnAbilityIndex = i;
+        abilities[LastTurnAbilityIndex].isActive = false;
+
+        encounter.AdvanceTurn();
     }
-    IEnumerator DelayToPlayAnimation(EncounterInstance ei)
-    {
 
-        yield return new WaitForSeconds(1.5f);
-      
 
+    //Check to see if the ability is active
+    bool IsAbilityActive(int indx)
+	{
+        return abilities[indx].isActive;
+	}
+    //Find a random active ability
+    int findRandomActiveAbility()
+	{
+        bool found = false;
+        int i =0;
+        while (!found)
+		{
+           i= Random.Range(0, abilities.Count);
+            if (IsAbilityActive(i))
+                found = true;
+
+        }
+        return i;
+	}
+    //finding an active ability with highest damage 
+    int FindAbilityWithHighestDamage()
+	{
+        int maxDamage = -1;
+        int indx = 0;
+		for (int i = 0; i < abilities.Count; i++)
+		{
+            if (IsAbilityActive(i))
+            {
+                foreach (var effect in abilities[i].effects)
+                {
+                    if (effect.damage>maxDamage)
+					{
+                        maxDamage = effect.damage;
+                        indx = i;
+					}
+
+            }
+            }
+		}
+        return indx;
+	}
+
+    int FindAnAbilityWithHealingEffect()
+	{
+        int maxHeal = 0;
+        int indx = -1;
+        for (int i = 0; i < abilities.Count; i++)
+        {
+            if (IsAbilityActive(i))
+            {
+                foreach (var effect in abilities[i].effects)
+                {
+                    if (effect.heal > maxHeal)
+                    {
+                        maxHeal = effect.heal;
+                        indx = i;
+                    }
+
+                }
+            }
+        }
+        return indx;
     }
-
 }

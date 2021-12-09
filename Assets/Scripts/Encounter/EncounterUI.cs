@@ -16,9 +16,13 @@ public class EncounterUI : MonoBehaviour
 
     [SerializeField]
     private float timeBetweenCharacter = 0.1f;
-
+    //List of ability buttons in the encounter panel
+    public List<GameObject> abilityButtons;
     public GameObject AbilityPrefab;
     private IEnumerator animateTextCoroutineRef = null;
+    // Index of ability button that was disabled 
+    public int DisabledButtonIndex = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +37,7 @@ public class EncounterUI : MonoBehaviour
 
 	private void Update()
 	{
-		if(abilityPanel.transform.childCount<encounter.Player.Abilities.Length)
+		if(abilityPanel.transform.childCount<encounter.Player.Abilities.Count)
 		{
             GenerateAbilityPanel();
 
@@ -56,7 +60,6 @@ public class EncounterUI : MonoBehaviour
         animateTextCoroutineRef = AnimateTextCoroutine( characterTurn.name + " chose " + ability.name+". It "+ ability.description);
        
         StartCoroutine(animateTextCoroutineRef);
-        encounter.AdvanceTurn();
     }
     void EnablePlayerUI(Icharacter characterTurn)
     {
@@ -88,14 +91,14 @@ public class EncounterUI : MonoBehaviour
 
     public void GenerateAbilityPanel()
 	{
-		for (int i = 0; i < encounter.Player.Abilities.Length; i++)
+		for (int i = 0; i < encounter.Player.Abilities.Count; i++)
 		{
            GameObject newAbility = Instantiate(AbilityPrefab, abilityPanel.transform);
             newAbility.GetComponent<AbilityUI>().index = i;
             newAbility.GetComponentInChildren<Text>().text = encounter.Player.Abilities[i].name;
    
             newAbility.GetComponent<Button>().onClick.AddListener(() => UsePlayerAbility(newAbility.GetComponent<AbilityUI>()));
-
+            abilityButtons.Add(newAbility);
         } 
 	}
     public void UsePlayerAbility(AbilityUI ability)

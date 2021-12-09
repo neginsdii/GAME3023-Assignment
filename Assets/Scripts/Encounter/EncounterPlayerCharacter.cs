@@ -12,7 +12,7 @@ public class EncounterPlayerCharacter : Icharacter
     [SerializeField]
     private EncounterPlayerCharacter player;
     [SerializeField]
-    private Text  HealthText;
+    private Text HealthText;
     [SerializeField]
     private EncounterUI encounterUI;
     private Animator anim;
@@ -21,6 +21,7 @@ public class EncounterPlayerCharacter : Icharacter
     private void Start()
     {
         abilities = GameDataManager.Instance.PlayerAbilities;
+        //Loading player's health
         health = GameDataManager.Instance.playerHealth;
         anim = GetComponent<Animator>();
     }
@@ -30,23 +31,32 @@ public class EncounterPlayerCharacter : Icharacter
         player = ei.Player;
         opponent = ei.Enemy;
     }
+    //Use ability based on selceted ability button.
+    //make that button disable to one turn
     public void UseAbility(int slot)
     {
-       
+
         abilities[slot].cast(this, opponent);
-        encounterUI.AnnounceCharacterChoosenAbility(this,abilities[slot]);
+        abilities[LastTurnAbilityIndex].isActive = true;
+        //Updating ability buttons in ability panel based corresponding ability being active or not
+
+        encounterUI.abilityButtons[LastTurnAbilityIndex].GetComponent<Button>().interactable = true;
+
+        LastTurnAbilityIndex = slot;
+        encounterUI.abilityButtons[LastTurnAbilityIndex].GetComponent<Button>().interactable = false;
+
+        abilities[LastTurnAbilityIndex].isActive = false;
+        
+        encounterUI.AnnounceCharacterChoosenAbility(this, abilities[slot]);
+        encounter.AdvanceTurn();
 
     }
-    IEnumerator DelayToPlayAnimation(EncounterInstance ei)
+    //Updating player's health
+    private void Update()
     {
-
-        yield return new WaitForSeconds(1.5f);
-     
-
-    }
-	private void Update()
-	{
         HealthText.text = "Health: " + health;
-	}
-
+        if (health >= 100)
+            health = 100;
+    }
+    
 }

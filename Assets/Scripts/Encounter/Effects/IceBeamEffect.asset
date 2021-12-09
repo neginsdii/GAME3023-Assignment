@@ -9,6 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a93bb0df503613f47ab408a9572783be, type: 3}
-  m_Name: IceBeamEffect
+  m_Script: {fileID: 11500000, guid: 467fa5efa989e184ea2f5edb99181a4a, type: 3}
+  m_Name: Icebeameffect
   m_EditorClassIdentifier: 
+  damage: 10
+  heal: 5

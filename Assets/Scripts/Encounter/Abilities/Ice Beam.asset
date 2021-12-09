@@ -16,3 +16,4 @@ MonoBehaviour:
   description: ' freezes opponent.'
   effects:
   - {fileID: 11400000, guid: 4f6f1100d4d57c2489143ecb9f0a3d84, type: 2}
+  isActive: 1

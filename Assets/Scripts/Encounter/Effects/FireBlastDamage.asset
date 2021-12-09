@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: FireBlastDamage
   m_EditorClassIdentifier: 
   damage: 15
+  heal: 5
