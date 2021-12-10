@@ -49,9 +49,8 @@ public class EncounterInstance : MonoBehaviour
     }
     public void AdvanceTurn()
     {
-        StartCoroutine(AdvanceTurnDelay());
-        if (enemy.health > 0 || player.health > 0)
-        {
+;
+       
             Debug.Log(currentCharacterTurn.name);
             onCharacterTurnEnd.Invoke(currentCharacterTurn);
             if (currentCharacterTurn == player)
@@ -72,7 +71,7 @@ public class EncounterInstance : MonoBehaviour
 
             onCharacterTurnBegin.Invoke(currentCharacterTurn);
             currentCharacterTurn.TakeTurn(this);
-        }
+        
     }
     // Update is called once per frame
     void Update()

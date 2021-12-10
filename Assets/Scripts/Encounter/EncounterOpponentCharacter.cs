@@ -81,16 +81,20 @@ public class EncounterOpponentCharacter : Icharacter
     //Find a random active ability
     int findRandomActiveAbility()
 	{
-        bool found = false;
-        int i =0;
-        while (!found)
-		{
-           i= Random.Range(0, abilities.Count);
-            if (IsAbilityActive(i))
-                found = true;
 
-        }
-        return i;
+        int ind =0;
+        	for (int i = 0; i < abilities.Count; i++)
+			{
+                if (IsAbilityActive(i))
+			    {
+                    ind = i;
+                    break;
+			    }
+
+
+			}
+       
+        return ind;
 	}
     //finding an active ability with highest damage 
     int FindAbilityWithHighestDamage()

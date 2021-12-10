@@ -47,7 +47,6 @@ public class EncounterPlayerCharacter : Icharacter
 
         abilities[LastTurnAbilityIndex].isActive = false;
         
-        encounterUI.AnnounceCharacterChoosenAbility(this, abilities[slot]);
         encounter.AdvanceTurn();
 
     }
